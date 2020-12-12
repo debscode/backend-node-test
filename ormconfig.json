@@ -1,0 +1,14 @@
+{
+  "type": "postgres",
+  "host": "localhost",
+  "port": "5432",
+  "username": "postgres",
+  "password": "123",
+  "database": "test_smartsoft",
+  "entities": ["dist/entity/**/*.js"],
+  "migrations": [
+    "src/migration/**/*.ts"
+  ],
+  "logging": false,
+  "synchronize": true
+}
