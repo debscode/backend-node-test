@@ -10,15 +10,15 @@ export class Product {
     @IsNotEmpty()
     @Column({
         type: "varchar",
-        nullable: false
+        nullable: false,
+        unique: true
     })
     name: string;
 
     @IsNotEmpty()
     @Column({
         type: "varchar",
-        nullable: false,
-        unique: true
+        nullable: false
     })
     category: string;
     
@@ -28,8 +28,7 @@ export class Product {
         nullable: false
     })
     price: number;
-
-    @IsInt()    
+       
     @IsNotEmpty()
     @Column({
         type: "int",

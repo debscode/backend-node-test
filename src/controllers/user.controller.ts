@@ -6,6 +6,11 @@ import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import config from '../config/config';
 
+/**
+ * Get all users
+ * @param req Request
+ * @param res Response
+ */
 export const getUsers = async (req: Request, res: Response): Promise<Response> => {
     const data = await getRepository(User).find();
     if (data.length) {
@@ -22,6 +27,11 @@ export const getUsers = async (req: Request, res: Response): Promise<Response> =
 
 };
 
+/**
+ * Get user by id
+ * @param req Request
+ * @param res Response
+ */
 export const getUser = async (req: Request, res: Response): Promise<Response> => {
     const data = await getRepository(User).findOne(req.params.id);
     if (data) {
@@ -37,6 +47,11 @@ export const getUser = async (req: Request, res: Response): Promise<Response> =>
     }
 };
 
+/**
+ * Create a user
+ * @param req Request
+ * @param res Response
+ */
 export const createUser = async (req: Request, res: Response): Promise<Response> => {
     let user = new User();
     getRepository(User).merge(user, req.body);
@@ -66,6 +81,11 @@ export const createUser = async (req: Request, res: Response): Promise<Response>
     });
 };
 
+/**
+ * Update a user
+ * @param req Request
+ * @param res Response
+ */
 export const updateUser = async (req: Request, res: Response): Promise<Response> => {
     const user = await getRepository(User).findOne(req.params.id);
     if (user) {
@@ -97,6 +117,11 @@ export const updateUser = async (req: Request, res: Response): Promise<Response>
     });
 };
 
+/**
+ * Delete a user
+ * @param req Request
+ * @param res Response
+ */
 export const deleteUser = async (req: Request, res: Response): Promise<Response> => {
     const userRepository = getRepository(User);
     let user: User;
@@ -115,6 +140,11 @@ export const deleteUser = async (req: Request, res: Response): Promise<Response>
     });
 };
 
+/**
+ * Login a user with token
+ * @param req Request
+ * @param res Response
+ */
 export const login = async (req: Request, res: Response): Promise<Response> => {
     const userRepository = getRepository(User);
     let user: User;

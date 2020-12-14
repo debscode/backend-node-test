@@ -3,6 +3,11 @@ import { getRepository } from "typeorm";
 import { Product } from '../entity/Product';
 import { validate } from "class-validator";
 
+/**
+ * Get all products
+ * @param req Request
+ * @param res Response
+ */
 export const getProducts = async (req: Request, res: Response): Promise<Response> => {
     const [data, count] = await getRepository(Product).findAndCount();
     if (data.length) {
@@ -20,6 +25,11 @@ export const getProducts = async (req: Request, res: Response): Promise<Response
 
 };
 
+/**
+ * Get product by id
+ * @param req Request
+ * @param res Response
+ */
 export const getProduct = async (req: Request, res: Response): Promise<Response> => {
     const data = await getRepository(Product).findOne(req.params.id);
     if (data) {
@@ -35,6 +45,11 @@ export const getProduct = async (req: Request, res: Response): Promise<Response>
     }
 };
 
+/**
+ * Create a product
+ * @param req Request
+ * @param res Response
+ */
 export const createProduct = async (req: Request, res: Response): Promise<Response> => {
     let product = new Product();
     getRepository(Product).merge(product, req.body);
@@ -62,6 +77,11 @@ export const createProduct = async (req: Request, res: Response): Promise<Respon
     });
 };
 
+/**
+ * Update a product
+ * @param req Request
+ * @param res Response
+ */
 export const updateProduct = async (req: Request, res: Response): Promise<Response> => {
     const product = await getRepository(Product).findOne(req.params.id);
     if (product) {
@@ -93,6 +113,11 @@ export const updateProduct = async (req: Request, res: Response): Promise<Respon
     });
 };
 
+/**
+ * Delete a product
+ * @param req Request
+ * @param res Response
+ */
 export const deleteProduct = async (req: Request, res: Response): Promise<Response> => {
     const productRepository = getRepository(Product);
     let product: Product;

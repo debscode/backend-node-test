@@ -1,9 +1,12 @@
 import jwt from 'jsonwebtoken';
 import config from '../config/config';
 
-// =====================
-// Check Token
-// =====================
+/**
+ * Check token
+ * @param req Request
+ * @param res Response
+ * @param next Next step on request
+ */
 export const checkToken = (req, res, next) => {
 
     const token = req.get('Authorization');

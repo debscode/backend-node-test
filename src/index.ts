@@ -20,4 +20,4 @@ app.use(bodyParser.urlencoded({ extended: false }))
 app.use(indexRoutes);
 
 app.listen(3000);
-console.log('Server port', 3000);
+console.log('Server on port', 3000);
