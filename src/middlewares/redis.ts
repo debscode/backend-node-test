@@ -2,7 +2,7 @@ const redis = require("redis");
 const redis_client = redis.createClient(6379, 'redis');
 
 /**
- * Check data in redis to return
+ * Add redis client to request
  * @param req Request
  * @param res Response
  * @param next Next step on request
